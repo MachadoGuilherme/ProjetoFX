@@ -25,8 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="da6e454a-f42b-465e-a414-01df4fa340ef">
-        <schema name="BaseDados" object-types="table, function, procedure, view" />
-        <schema name="ProjetoFX" object-types="index, dataset trigger, table, function, procedure, constraint, column, view" />
+        <schema name="ProjetoFX" object-types="dataset trigger, constraint, view, index, column, procedure, table, function" />
       </connection>
     </loaded-nodes>
   </component>

@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,7 +47,6 @@ public abstract class Controller implements Initializable {
         adicionaNome.clear();
         adicionaEmail.clear();
     }
-
     @FXML
     private void botaoAddSalva(ActionEvent event){
 
@@ -79,10 +77,44 @@ public abstract class Controller implements Initializable {
     private void botaoConConsult(ActionEvent event) {
 
     }
-
     @FXML
     private void botaoConLimpar(ActionEvent event) {
         consultaId.clear();
+        consultaNome.clear();
+        consultaEmail.clear();
+    }
+    //=================================================================================================================
+    @FXML
+    private TextField apagaId;
+
+    @FXML
+    private TextField apagaNome;
+
+    @FXML
+    private TextField apagaEmail;
+
+    @FXML
+    private Button botaoApagaLimpar;
+
+    @FXML
+    private Button botaoApaga;
+
+    @FXML
+    private Button botaoApagaConsult;
+
+    @FXML
+    private void botaoApagaConsult(ActionEvent event){
+
+    }
+    @FXML
+    private void botaoApagar(ActionEvent event){
+
+    }
+    @FXML
+    private void botaoApagaLimpar(ActionEvent event){
+        apagaId.clear();
+        apagaNome.clear();
+        apagaEmail.clear();
     }
     //=================================================================================================================
     @Override

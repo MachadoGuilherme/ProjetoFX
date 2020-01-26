@@ -20,7 +20,7 @@
                   <TextField fx:id="adicionaNome" layoutX="187.0" layoutY="139.0" prefHeight="27.0" prefWidth="274.0" promptText="Digite Aqui o Nome Completo" />
                   <TextField fx:id="adicionaEmail" layoutX="187.0" layoutY="178.0" prefHeight="27.0" prefWidth="274.0" promptText="Digite Aqui o Endereço de Email" />
                   <Button fx:id="botaoAdicionaLimpar" layoutX="402.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoAddLimpar" text="Limpar" />
-                  <Button fx:id="botaoAdicionaSalvar" layoutX="327.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoAddSalva" text="Salvar" />
+                  <Button fx:id="botaoAdicionaSalvar" layoutX="339.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoAddSalva" text="Salvar" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -32,8 +32,8 @@
                    <Label layoutX="138.0" layoutY="144.0" text="Nome" />
                    <Label layoutX="138.0" layoutY="183.0" text="Email" />
                    <TextField fx:id="consultaId" layoutX="187.0" layoutY="99.0" prefHeight="27.0" prefWidth="140.0" promptText="Digite o ID" />
-                   <TextField fx:id="consultaNome" disable="true" layoutX="187.0" layoutY="139.0" prefHeight="27.0" prefWidth="274.0" />
-                   <TextField fx:id="consultaEmail" disable="true" layoutX="187.0" layoutY="178.0" prefHeight="27.0" prefWidth="274.0" />
+                   <TextField fx:id="consultaNome" disable="true" layoutX="187.0" layoutY="139.0" prefHeight="27.0" prefWidth="274.0" promptText="Consulta Nome" />
+                   <TextField fx:id="consultaEmail" disable="true" layoutX="187.0" layoutY="178.0" prefHeight="27.0" prefWidth="274.0" promptText="Consulta Email" />
                    <Button fx:id="botaoConsultaLimpar" layoutX="402.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoConLimpar" text="Limpar" />
                    <Button fx:id="botaoConsultaConsult" layoutX="317.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoConConsult" text="Consultar" />
                </children></AnchorPane>
@@ -41,7 +41,18 @@
     </Tab>
       <Tab text="Apagar Dados">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="138.0" layoutY="104.0" text="Id" />
+                   <Label layoutX="138.0" layoutY="144.0" text="Nome" />
+                   <Label layoutX="138.0" layoutY="183.0" text="Email" />
+                  <TextField fx:id="apagaId" layoutX="187.0" layoutY="99.0" prefHeight="27.0" prefWidth="140.0" promptText="Digite o ID" />
+                  <TextField fx:id="apagaNome" disable="true" layoutX="187.0" layoutY="139.0" prefHeight="27.0" prefWidth="274.0" promptText="Apagar Dados" />
+                  <TextField fx:id="apagaEmail" disable="true" layoutX="187.0" layoutY="178.0" prefHeight="27.0" prefWidth="274.0" promptText="Apagar Dados" />
+                  <Button layoutX="402.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoApagaLimpar" text="Limpar" />
+                  <Button layoutX="333.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoApagar" text="Apagar" />
+                  <Button layoutX="249.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoApagaConsult" text="Consultar" />
+               </children></AnchorPane>
          </content>
       </Tab>
   </tabs>

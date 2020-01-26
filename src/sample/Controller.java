@@ -6,13 +6,11 @@ import Search.searchPessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public abstract class Controller implements Initializable {
@@ -39,7 +37,25 @@ public abstract class Controller implements Initializable {
         limpaDadosAdd();
     }
     @FXML
-    private void botaoAddSalva(ActionEvent event){
+    private void botaoAddSalva(ActionEvent event) throws SQLException, ClassNotFoundException{
+        if (adicionaId.getText().trim().equals("")){
+            mensagemInformacao("Cadastro", "Preencha o ID", "Deve Preencher Todos os Campos!");
+        }
+        else {
+            try {
+                if (modoEntrada){
+                    searchPessoa.addNovosDados(Integer.parseInt(adicionaId.getText()), adicionaNome.getText(), adicionaEmail.getText());
+                    mensagemInformacao("Cadastro", "Inserir Registro", "Registro Inserido Com Sucesso");
+                    modoEntrada = false;
+                    botaoApaga.setVisible(false);
+                }
+            }
+            catch (SQLException e){
+                System.out.println("Erro: " + e);
+                throw e;
+            }
+        }
+
         limpaDadosAdd();
         modoEntrada = true;
         botaoApaga.setVisible(false);
@@ -167,6 +183,42 @@ public abstract class Controller implements Initializable {
         limpaDadosApagar();
     }
     //=================================================================================================================
+    @FXML
+    private TextArea txtAreaCTD;
+
+    @FXML
+    private Button botaoConCTD;
+
+    @FXML
+    private Button botaoLimparCTD;
+
+    @FXML
+    private void botaoConsCTD(ActionEvent event) throws SQLException, ClassNotFoundException{
+
+        try {
+            txtAreaCTD.clear();
+
+            List lista = searchPessoa.procuraPessoa();
+            String texto = "";
+
+            for (int i = 0; i < lista.size(); i++ ) {
+                DadosPessoa p = (DadosPessoa) lista.get(i);
+                texto = texto  + p.informacao()+ "\n";
+            }
+            txtAreaCTD.setText(texto);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+
+    @FXML
+    private void botaoLimpaCTD(ActionEvent event){
+        limpaConsultaTodosDados();
+    }
+    //=================================================================================================================
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         limpaDadosAdd();
@@ -208,6 +260,9 @@ public abstract class Controller implements Initializable {
         apagaId.clear();
         apagaNome.clear();
         apagaEmail.clear();
+    }
+    private void limpaConsultaTodosDados(){
+        txtAreaCTD.clear();
     }
     //=================================================================================================================
 }

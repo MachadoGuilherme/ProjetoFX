@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -16,7 +17,7 @@
                   <Label layoutX="138.0" layoutY="104.0" text="Id" />
                   <Label layoutX="138.0" layoutY="144.0" text="Nome" />
                   <Label layoutX="138.0" layoutY="183.0" text="Email" />
-                  <TextField fx:id="adicionaId" disable="true" layoutX="187.0" layoutY="99.0" prefHeight="27.0" prefWidth="140.0" />
+                  <TextField fx:id="adicionaId" layoutX="187.0" layoutY="99.0" prefHeight="27.0" prefWidth="140.0" promptText="Digite o ID" />
                   <TextField fx:id="adicionaNome" layoutX="187.0" layoutY="139.0" prefHeight="27.0" prefWidth="274.0" promptText="Digite Aqui o Nome Completo" />
                   <TextField fx:id="adicionaEmail" layoutX="187.0" layoutY="178.0" prefHeight="27.0" prefWidth="274.0" promptText="Digite Aqui o Endereço de Email" />
                   <Button fx:id="botaoAdicionaLimpar" layoutX="402.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoAddLimpar" text="Limpar" />
@@ -53,6 +54,17 @@
                   <Button layoutX="333.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoApagar" text="Apagar" />
                   <Button layoutX="249.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoApagaConsult" text="Consultar" />
                </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Consulta Todos os Dados">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="botaoLimparCTD" layoutX="402.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoLimpaCTD" text="Limpar" />
+                  <Button fx:id="botaoConCTD" layoutX="317.0" layoutY="241.0" mnemonicParsing="false" onAction="#botaoConsCTD" text="Consultar" />
+                  <TextArea fx:id="txtAreaCTD" layoutX="64.0" layoutY="32.0" prefHeight="200.0" prefWidth="472.0" />
+               </children>
+            </AnchorPane>
          </content>
       </Tab>
   </tabs>

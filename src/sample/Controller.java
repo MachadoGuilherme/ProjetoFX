@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public abstract class Controller implements Initializable {
 
     boolean modoEntrada;
-
+    //=================================================================================================================
     @FXML
     private Button botaoAdicionaSalvar;
 
@@ -36,12 +36,13 @@ public abstract class Controller implements Initializable {
 
     @FXML
     private void botaoAddLimpar(ActionEvent event){
-        adicionaNome.clear();
-        adicionaEmail.clear();
+        limpaDadosAdd();
     }
     @FXML
     private void botaoAddSalva(ActionEvent event){
-
+        limpaDadosAdd();
+        modoEntrada = true;
+        botaoApaga.setVisible(false);
     }
     //=================================================================================================================
     @FXML
@@ -80,7 +81,7 @@ public abstract class Controller implements Initializable {
                     modoEntrada = true;
                 }
                 else {
-                    mensagemInformacao("Consulta", "ID Invalido ou Inexistente!", "T");
+                    mensagemInformacao("Consulta", "ID Invalido ou Inexistente!", "Tente Novamente");
                 }
 
             }catch (SQLException e){
@@ -93,9 +94,7 @@ public abstract class Controller implements Initializable {
 
     @FXML
     private void botaoConLimpar(ActionEvent event) {
-        consultaId.clear();
-        consultaNome.clear();
-        consultaEmail.clear();
+        limpaDadosConsult();
     }
     //=================================================================================================================
     @FXML
@@ -117,23 +116,64 @@ public abstract class Controller implements Initializable {
     private Button botaoApagaConsult;
 
     @FXML
-    private void botaoApagaConsult(ActionEvent event){
+    private void botaoApagaConsult(ActionEvent event) throws SQLException, ClassNotFoundException{
 
+        if (apagaId.getText().trim().equals("")){
+            mensagemInformacao("Consulta", "Preencha o ID", "O ID Deve Ser Numerico!");
+        }
+        else {
+            try {
+                DadosPessoa p = searchPessoa.consultaPessoa(Integer.parseInt(apagaId.getText()));
+
+                if (p != null){
+                    preencheDadosApagar(p);
+                    modoEntrada = true;
+                    botaoApaga.setVisible(true);
+                }
+                else {
+                    mensagemInformacao("Consulta", "ID Invalido ou Inexistente!", "Tente Novamente");
+                }
+
+            }catch (SQLException e){
+
+                modoEntrada = false;
+                throw e;
+            }
+            botaoApaga.setVisible(false);
+        }
     }
+
     @FXML
-    private void botaoApagar(ActionEvent event){
+    private void botaoApagar(ActionEvent event) throws ClassNotFoundException, SQLException{
+
+        try {
+
+            searchPessoa.apagaDadosPessoa(Integer.parseInt(apagaId.getText()));
+
+            mensagemInformacao("Apagar", "Apagar Dados", "Dados Apagados Com Sucesso!");
+
+            limpaDadosApagar();
+            modoEntrada = true;
+            botaoApaga.setVisible(false);
+        }
+        catch (SQLException e){
+            throw e;
+        }
 
     }
+
     @FXML
     private void botaoApagaLimpar(ActionEvent event){
-        apagaId.clear();
-        apagaNome.clear();
-        apagaEmail.clear();
+        limpaDadosApagar();
     }
     //=================================================================================================================
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL url, ResourceBundle rb) {
+        limpaDadosAdd();
+        limpaDadosConsult();
+        limpaDadosApagar();
+        modoEntrada = true;
+        botaoApaga.setVisible(false);
     }
     //=================================================================================================================
     private void mensagemInformacao(String titulo, String cabecalho, String texto) {
@@ -145,11 +185,29 @@ public abstract class Controller implements Initializable {
     }
     //=================================================================================================================
     private void preencheDados(DadosPessoa p ) {
-
         consultaId.setText(String.valueOf(p.getIdPessoa()));
         consultaNome.setText(p.getNomePessoa());
         consultaEmail.setText(p.getEmailPessoa());
-
+    }
+    private void preencheDadosApagar(DadosPessoa p){
+        apagaNome.setText(p.getNomePessoa());
+        apagaEmail.setText(p.getEmailPessoa());
+    }
+    //=================================================================================================================
+    private void limpaDadosAdd(){
+        adicionaId.clear();
+        adicionaNome.clear();
+        adicionaEmail.clear();
+    }
+    private void limpaDadosConsult(){
+        consultaId.clear();
+        consultaNome.clear();
+        consultaEmail.clear();
+    }
+    private void limpaDadosApagar(){
+        apagaId.clear();
+        apagaNome.clear();
+        apagaEmail.clear();
     }
     //=================================================================================================================
 }

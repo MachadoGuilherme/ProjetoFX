@@ -24,13 +24,13 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="da6e454a-f42b-465e-a414-01df4fa340ef">
+      <connection connection-id="91db04d6-0489-40c5-8507-4664dadf3817">
         <schema name="ProjetoFX" object-types="dataset trigger, constraint, view, index, column, procedure, table, function" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="da6e454a-f42b-465e-a414-01df4fa340ef">
+    <connection id="91db04d6-0489-40c5-8507-4664dadf3817">
       <console name="ProjetoFX" type="STANDARD" schema="mysql" session="Main" />
     </connection>
   </component>
@@ -38,7 +38,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="da6e454a-f42b-465e-a414-01df4fa340ef" />
+    <connection id="91db04d6-0489-40c5-8507-4664dadf3817" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -63,7 +63,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="da6e454a-f42b-465e-a414-01df4fa340ef" active="true">
+      <connection id="91db04d6-0489-40c5-8507-4664dadf3817" active="true">
         <database>
           <name value="ProjetoFX" />
           <description value="" />

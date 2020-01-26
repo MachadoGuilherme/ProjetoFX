@@ -12,16 +12,6 @@ import java.util.ResourceBundle;
 
 public abstract class Controller implements Initializable {
 
-    private static int proximoNum = 0 ;
-    private int idDados;
-    private String nome;
-    private String email;
-
-    public Controller(){
-        ++proximoNum;
-        idDados = proximoNum;
-    }
-
     @FXML
     private Button botaoAdicionaSalvar;
 
@@ -36,11 +26,6 @@ public abstract class Controller implements Initializable {
 
     @FXML
     private TextField adicionaEmail;
-
-    public void setAdicionaId(TextField adicionaId) {
-        this.adicionaId = adicionaId;
-        getIdDados();
-    }
 
     @FXML
     private void botaoAddLimpar(ActionEvent event){
@@ -121,32 +106,5 @@ public abstract class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    //=================================================================================================================
-
-    public int getIdDados() {
-        return idDados;
-    }
-    public void setIdDados(int idDados) {
-        this.idDados = idDados;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public TextField getAdicionaId() {
-        return adicionaId;
-    }
-
     //=================================================================================================================
 }
